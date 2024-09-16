@@ -1,4 +1,4 @@
-name: docker-build
+name: docker-build-and-scout
 
 on:
   push:
@@ -8,7 +8,9 @@ on:
     branches: ["main"]
 
 env:
-  IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}
+  #IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}
+  IMAGE_NAME: demonstrationorg/${{ github.event.repository.name }}
+
   REGISTRY: docker.io
   SHA: ${{ github.event.pull_request.head.sha || github.event.after }}
   DOCKERFILE_PATH: Dockerfile
